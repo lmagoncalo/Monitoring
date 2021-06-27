@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>IP </th>
+        <th>CPU </th>
+        <th>Memory</th>
+        <th>Date</th>
+    </tr>
+    {% for key, value in data.items(): %}
+    <tr>
+        <th>{{ key }} </th>
+        <th>{{ value['cpu'] }}</th>
+        <th>{{ value['memory'] }} </th>
+        <th>{{ value['date'] }} </th>
+    </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
