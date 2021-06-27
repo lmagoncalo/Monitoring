@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Computer from "./Computer";
+import Computer from "../Computer/Computer";
 
 class App extends React.Component{
   constructor(props) {

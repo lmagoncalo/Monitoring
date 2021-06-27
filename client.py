@@ -60,7 +60,7 @@ def main():
         GPUs = GPUtil.getGPUs()
         gpus = {}
         for GPU in GPUs:
-            gpu_info = {"gpu_name": GPU.name, "gpu_usage": round(GPU.load, 2), "gpu_memory": round(GPU.memoryUsed / GPU.memoryTotal, 2)}
+            gpu_info = {"name": GPU.name, "usage": round(GPU.load, 2), "memory": round(GPU.memoryUsed / GPU.memoryTotal, 2)}
             gpus[GPU.id] = gpu_info
 
         data['gpu'] = gpus
