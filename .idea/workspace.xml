@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f033cfc-6302-400e-8a51-4123500f7d82" name="Default Changelist" comment="Updated rounding">
-      <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
+    <list default="true" id="5f033cfc-6302-400e-8a51-4123500f7d82" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/info.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/info.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/App/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/App/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/App/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/CPU/CPU.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/CPU/CPU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/Computer/Computer.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/Computer/Computer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/GPU/GPU.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/GPU/GPU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/Memory/Memory.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/Memory/Memory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/RAM/RAM.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/RAM/RAM.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +145,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend" />
@@ -143,7 +165,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Updated rounding" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Monitoring$client.coverage" NAME="client Coverage Results" MODIFIED="1624832800671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Monitoring$server.coverage" NAME="server Coverage Results" MODIFIED="1624832856837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Monitoring$client.coverage" NAME="client Coverage Results" MODIFIED="1624832546890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Monitoring$server.coverage" NAME="server Coverage Results" MODIFIED="1624887442023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -1,14 +1,22 @@
 import React from 'react';
+import Row from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
 
 class GPU extends React.Component{
   render() {
     return (
-        <div className="GPU">
-              GPU
-              <p>GPU Name: {this.props.gpu_info.name}</p>
-              <p>GPU Usage: {this.props.gpu_info.cpu.usage} %</p>
-              <p>GPU Memory: {this.props.gpu_info.memory} %</p>
-        </div>
+        <Card.Body className="GPU">
+               <p id="GPU_title" className="title_css">Machine</p>
+               <p id="GPU_nome" className="model_css" >Ubuntu Celeron(R) CPUG1840</p>
+               <p id="GPU_usage" className="usage_css" >3%</p>
+               <p id="GPU_usage_label" className="usage_label_css" >ram usage</p>
+                <CardGroup className="subcomponent">
+                    <Card className="subcard-component"><p className="GPU_memory_perc">20%</p></Card>
+                    <Card className="subcard-component"><p className="GPU_temperature">20ºC</p></Card>
+                </CardGroup>
+        </Card.Body>
     );
   }
 }

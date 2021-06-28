@@ -17,7 +17,7 @@ class App extends React.Component{
           info: data.info
       }));
     });
-    console.log(this.state.info)
+    // console.log(this.state.info)
   }
 
   componentDidMount() {
