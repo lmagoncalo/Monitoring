@@ -9,62 +9,105 @@ import GPUtil
 import cpuinfo
 import psutil
 import requests
+import platform
 
 delay = 5  # send cpu data every 10 seconds
-# host = 'http://192.168.1.66:5000/'  # sever host
-host = 'http://localhost:5000/'  # sever host
+# host = 'http://192.168.1.66:5000'  # sever host
+host = 'http://localhost:5000'  # sever host
 URL = host + '/api'
 
 
+def get_first_info():
+    data = {}
+
+    ip = socket.gethostbyname(socket.gethostname())  # get IP address
+    data['ip'] = ip
+
+    cpu = {}
+    cpu_info = cpuinfo.get_cpu_info()
+    cpu_use = psutil.cpu_percent()
+    cpu['usage'] = round(cpu_use, 2)
+    cpu_bits = cpu_info['bits']
+    cpu['bits'] = cpu_bits
+    cpu_name = cpu_info['brand_raw']
+    cpu['name'] = cpu_name
+    # cpu_hz = cpu_info['hz_actual_friendly']
+    cpu_p_cores = psutil.cpu_count(logical=False)
+    cpu['p_cores'] = cpu_p_cores
+    cpu_l_cores = psutil.cpu_count(logical=True)
+    cpu['l_cores'] = cpu_l_cores
+
+    data['cpu'] = cpu
+
+    ram = {}
+    ram_info = psutil.virtual_memory()
+    ram_name = platform.system() + " " + platform.release()
+    ram['name'] = ram_name
+    ram_usage = round(ram_info.percent, 2)
+    ram['usage'] = ram_usage
+    ram_total = round(ram_info.total / (1024. ** 3), 2)
+    ram['total'] = ram_total
+
+    data['ram'] = ram
+
+    memory = {}
+    memory_info = psutil.disk_usage('/')
+    memory_total = round(memory_info.total / (1024.0 ** 3))
+    memory['total'] = memory_total
+    memory_used = round(memory_info.percent, 2)
+    memory['usage'] = memory_used
+
+    data['memory'] = memory
+
+    GPUs = GPUtil.getGPUs()
+    gpus = {}
+    for GPU in GPUs:
+        gpu_info = {"name": GPU.name, "usage": round(GPU.load, 2), "memory": round(GPU.memoryUsed / GPU.memoryTotal, 2)}
+        gpus[GPU.id] = gpu_info
+
+    data['gpu'] = gpus
+
+    return data
+
+
+def get_info(data):
+    ip = socket.gethostbyname(socket.gethostname())  # get IP address
+    data['ip'] = ip
+
+    cpu = {}
+    cpu_use = psutil.cpu_percent()
+    cpu['usage'] = round(cpu_use, 2)
+
+    data['cpu'] = cpu
+
+    ram = {}
+    ram_info = psutil.virtual_memory()
+    ram_usage = round(ram_info.percent, 2)
+    ram['usage'] = ram_usage
+
+    data['ram'] = ram
+
+    memory = {}
+    memory_info = psutil.disk_usage('/')
+    memory_used = round(memory_info.percent, 2)
+    memory['usage'] = memory_used
+
+    data['memory'] = memory
+
+    GPUs = GPUtil.getGPUs()
+    gpus = {}
+    for GPU in GPUs:
+        gpu_info = {"usage": round(GPU.load, 2)}
+        gpus[GPU.id] = gpu_info
+
+    data['gpu'] = gpus
+
+    return data
+
+
 def main():
+    data = get_first_info()
     while True:
-        data = {}
-
-        ip = socket.gethostbyname(socket.gethostname())  # get IP address
-        data['ip'] = ip
-
-        cpu = {}
-        cpu_info = cpuinfo.get_cpu_info()
-        cpu_use = psutil.cpu_percent()
-        cpu['usage'] = round(cpu_use, 2)
-        cpu_bits = cpu_info['bits']
-        cpu['bits'] = cpu_bits
-        cpu_name = cpu_info['brand_raw']
-        cpu['name'] = cpu_name
-        # cpu_hz = cpu_info['hz_actual_friendly']
-        cpu_p_cores = psutil.cpu_count(logical=False)
-        cpu['p_cores'] = cpu_p_cores
-        cpu_l_cores = psutil.cpu_count(logical=True)
-        cpu['l_cores'] = cpu_l_cores
-
-        data['cpu'] = cpu
-
-        ram = {}
-        ram_info = psutil.virtual_memory()
-        ram_usage = round(ram_info.percent, 2)
-        ram['usage'] = ram_usage
-        ram_total = round(ram_info.total / (1024.**3), 2)
-        ram['total'] = ram_total
-
-        data['ram'] = ram
-
-        memory = {}
-        memory_info = psutil.disk_usage('/')
-        memory_total = round(memory_info.total / (1024.0 ** 3))
-        memory['total'] = memory_total
-        memory_used = round(memory_info.percent / (1024.0 ** 3), 2)
-        memory['used'] = memory_used
-
-        data['memory'] = memory
-
-        GPUs = GPUtil.getGPUs()
-        gpus = {}
-        for GPU in GPUs:
-            gpu_info = {"name": GPU.name, "usage": round(GPU.load, 2), "memory": round(GPU.memoryUsed / GPU.memoryTotal, 2)}
-            gpus[GPU.id] = gpu_info
-
-        data['gpu'] = gpus
-
         try:
             res = requests.post(url=URL, json=data)  # post
             if res.ok:
@@ -75,6 +118,8 @@ def main():
             print(">>> ", sys.exc_info()[0])
 
         time.sleep(delay)  # delay
+
+        data = get_info(data)
 
 
 if __name__ == '__main__':
