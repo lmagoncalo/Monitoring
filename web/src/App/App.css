@@ -18,8 +18,31 @@ p.Computer_name {
     margin: 2em;
 }
 .Computer_components.card-group {
-    margin: 0em 1em 1em 1em;
+    margin: 0em 0em 1em 1em;
 }
+.App .Computer.card{
+    border:black;
+}
+.App .Computer.card .Computer_components .card {
+    background-color: white;
+    border-radius: 0.5em;
+}
+
+.Computer_components.card-group .card {
+    border-radius: 10px;
+    margin-right: 1em;
+    border: none;
+}
+.Computer_components.card-group .card .card-body {
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.15);
+}
+
+.Computer.card {
+    background-color: rgb(200 220 245);
+    border-radius: 0.5em;
+}
+
 .subcard-component.card {
     font-size: 12px;
     text-align: center;
