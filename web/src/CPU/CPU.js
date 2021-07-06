@@ -1,8 +1,5 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Card';
-import GPU from "../GPU/GPU";
-import Col from "react-bootstrap/Col";
 import CardGroup from 'react-bootstrap/CardGroup';
 
 class CPU extends React.Component{

@@ -12,7 +12,8 @@ p.Computer_name {
     display: inline-block;
 }
 .card p{
-  margin:0;
+    margin:0;
+    font-weight: 600;
 }
 .Computer.card {
     margin: 2em;
@@ -20,31 +21,38 @@ p.Computer_name {
 .Computer_components.card-group {
     margin: 0em 0em 1em 1em;
 }
-.App .Computer.card{
-    border:black;
+.Computer_components.card-group .Computer_components_cards.card, .Computer_components.card-group .subcard-component.card{
+    /*border: none;*/
 }
-.App .Computer.card .Computer_components .card {
-    background-color: white;
-    border-radius: 0.5em;
+.Computer_components.card-group .Computer_components_cards.card {
+    margin-right: 1em;
+    border-radius: 10px;
+    border: none;
+    /*border-color: black;
+    border-width: 2px;*/
+    box-shadow: 0 2.7px 0.1px -0.1px rgb(0 0 0 / 99%);
 }
 
-.Computer_components.card-group .card {
-    border-radius: 10px;
-    margin-right: 1em;
-    border: none;
+
+
+.Computer_components.card-group .subcard-component.card {
+    border-color: rgb(200,220,245);
+    border-width: 2.5px;
 }
 .Computer_components.card-group .card .card-body {
     border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.15);
+   /* box-shadow: 0px 0px 20px rgba(0,0,0,0.15);*/
 }
 
 .Computer.card {
     background-color: rgb(200 220 245);
-    border-radius: 0.5em;
+    border-radius: 0.7em;
+    border: none;
+    box-shadow: 0 -2.6px 0px 0px rgb(0 0 0);
 }
 
 .subcard-component.card {
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
     padding: 0.4em;
 }
@@ -66,10 +74,12 @@ p.usage_css {
      margin-top: 0.2em;
 }
 p.model_css {
-    font-size: 12px;
+    font-size: 13px;
+    color: rgb(160 180 205);
 }
 p.title_css {
     font-weight: 700;
+    font-size: 16px;
 }
 
 .App-logo {

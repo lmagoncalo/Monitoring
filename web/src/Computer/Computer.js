@@ -5,6 +5,7 @@ import CPU from "../CPU/CPU";
 import RAM from "../RAM/RAM";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
+import {Row} from "react-bootstrap";
 
 
 class Computer extends React.Component{
@@ -16,22 +17,22 @@ class Computer extends React.Component{
                         <p className="Computer_ip">{this.props.computer_info.ip}</p>
                     </div>
                     <CardGroup className="Computer_components">
-                        <Card>
-                            <CPU cpu_info={this.props.computer_info.cpu}  />
-                        </Card>
-                        <Card>
-                            <RAM ram_info={this.props.computer_info.ram}  />
-                        </Card>
-                        <Card>
-                            <Memory memory_info={this.props.computer_info.memory}  />
-                        </Card>
-
+                            <Card className="Computer_components_cards">
+                                <CPU cpu_info={this.props.computer_info.cpu}  />
+                            </Card>
+                            <Card className="Computer_components_cards">
+                                <RAM ram_info={this.props.computer_info.ram}  />
+                            </Card>
+                            <Card className="Computer_components_cards">
+                                <Memory memory_info={this.props.computer_info.memory}  />
+                            </Card>
+                    </CardGroup>
+                    <CardGroup className="Computer_components">
                         {Object.keys(this.props.computer_info.gpu).map((key)=>(
-                            <Card>
+                            <Card className="Computer_components_cards">
                                 <GPU gpu_info={this.state.gpu[key]}/>
                             </Card>
                         ))}
-
                     </CardGroup>
         </Card>
     );
