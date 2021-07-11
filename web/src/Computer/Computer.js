@@ -30,7 +30,7 @@ class Computer extends React.Component{
                     <CardGroup className="Computer_components">
                         {Object.keys(this.props.computer_info.gpu).map((key)=>(
                             <Card className="Computer_components_cards">
-                                <GPU gpu_info={this.state.gpu[key]}/>
+                                <GPU gpu_info={key}/>
                             </Card>
                         ))}
                     </CardGroup>
