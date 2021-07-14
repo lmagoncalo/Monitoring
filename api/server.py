@@ -36,8 +36,8 @@ def api():
 		else:
 			real_time[ip] = data
 
-		with open("info.pkl", 'wb') as handle:
-			pickle.dump(real_time, handle, protocol=pickle.HIGHEST_PROTOCOL)
+		# with open("info.pkl", 'wb') as handle:
+		# 	pickle.dump(real_time, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 		# db.insert(data)
 		print(real_time)
