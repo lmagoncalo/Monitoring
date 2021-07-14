@@ -4,15 +4,16 @@ import CardGroup from "react-bootstrap/CardGroup";
 
 class GPU extends React.Component{
   render() {
+      console.log(this.props.gpu_info)
     return (
         <Card.Body className="GPU">
-               <p id="GPU_title" className="title_css">Machine</p>
-               <p id="GPU_nome" className="model_css" >Ubuntu Celeron(R) CPUG1840</p>
-               <p id="GPU_usage" className="usage_css" >3%</p>
-               <p id="GPU_usage_label" className="usage_label_css" >ram usage</p>
+               <p className="title_css">GPU</p>
+               <p className="model_css" >{this.props.gpu_info.name}</p>
+               <p className="usage_css" >{this.props.gpu_info.usage}%</p>
+               <p className="usage_label_css" >gpu usage</p>
                 <CardGroup className="subcomponent">
-                    <Card className="subcard-component"><p className="GPU_memory_perc">20%</p></Card>
-                    <Card className="subcard-component"><p className="GPU_temperature">20ºC</p></Card>
+                    <Card className="subcard-component"><p className="GPU_memory_perc">{this.props.gpu_info.memory}GiB</p></Card>
+                    {/*<Card className="subcard-component"><p className="GPU_temperature">20ºC</p></Card>*/}
                 </CardGroup>
         </Card.Body>
     );
