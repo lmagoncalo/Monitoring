@@ -11,6 +11,10 @@ CORS(app)
 real_time = {}
 
 
+@app.route('/', methods=['GET'])
+def get_info():
+	return 'First endpoint.'
+
 @app.route('/info', methods=['GET'])
 def get_info():
 	return {'info': real_time}
