@@ -1,7 +1,5 @@
-import argparse
-from os import path
+import os
 
-import pickle
 from flask import Flask, request
 from flask_cors import CORS
 
@@ -28,10 +26,6 @@ def api():
 		ip = str(data['ip'])
 		real_time[ip] = data
 
-		# with open("info.pkl", 'wb') as handle:
-		# 	pickle.dump(real_time, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-		# db.insert(data)
 		print(real_time)
 		return 'OK'
 	except Exception as e:
