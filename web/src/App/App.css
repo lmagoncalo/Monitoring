@@ -82,6 +82,30 @@ p.title_css {
     font-size: 16px;
 }
 
+@media (min-width: 0px) {
+.Computer_components.card-group .Computer_components_cards.card {
+      max-width: 100%;
+    }
+}
+
+@media (min-width: 576px) {
+    .Computer_components.card-group .Computer_components_cards.card {
+        max-width: 32%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
