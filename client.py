@@ -12,14 +12,13 @@ import requests
 import platform
 
 delay = 5  # send cpu data every 10 seconds
-# host = 'http://192.168.1.66:5000'  # sever host
-host = 'http://localhost:5000'  # sever host
+host = 'http://cdv-2.dei.uc.pt:5000'  # sever host
+# host = 'http://localhost:5000'  # sever host
 URL = host + '/api'
+data = {}
 
 
 def get_first_info():
-    data = {}
-
     ip = socket.gethostbyname(socket.gethostname())  # get IP address
     data['ip'] = ip
 
@@ -70,43 +69,28 @@ def get_first_info():
     return data
 
 
-def get_info(data):
+def send_info():
     ip = socket.gethostbyname(socket.gethostname())  # get IP address
     data['ip'] = ip
 
-    cpu = {}
     cpu_use = psutil.cpu_percent()
-    cpu['usage'] = round(cpu_use, 2)
+    data['cpu']['usage'] = round(cpu_use, 2)
 
-    data['cpu'] = cpu
-
-    ram = {}
     ram_info = psutil.virtual_memory()
     ram_usage = round(ram_info.percent, 2)
-    ram['usage'] = ram_usage
+    data['ram']['usage'] = ram_usage
 
-    data['ram'] = ram
-
-    memory = {}
     memory_info = psutil.disk_usage('/')
     memory_used = round(memory_info.percent, 2)
-    memory['usage'] = memory_used
-
-    data['memory'] = memory
+    data['memory']['usage'] = memory_used
 
     GPUs = GPUtil.getGPUs()
-    gpus = {}
     for GPU in GPUs:
-        gpu_info = {"usage": round(GPU.load, 2)}
-        gpus[GPU.id] = gpu_info
-
-    data['gpu'] = gpus
-
-    return data
+        data['gpu'][GPU.id]['usage'] = round(GPU.load, 2)
 
 
 def main():
-    data = get_first_info()
+    get_first_info()
     while True:
         try:
             res = requests.post(url=URL, json=data)  # post
@@ -119,7 +103,8 @@ def main():
 
         time.sleep(delay)  # delay
 
-        data = get_info(data)
+        send_info()
+        print(data)
 
 
 if __name__ == '__main__':
