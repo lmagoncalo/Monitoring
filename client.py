@@ -11,16 +11,16 @@ import psutil
 import requests
 import platform
 
-delay = 5  # send cpu data every 10 seconds
-host = 'http://cdv-2.dei.uc.pt:5000'  # sever host
+delay = 5  # send cpu data every 5 seconds
+host = 'https://monitoring-cdv.herokuapp.com/'  # sever host
 # host = 'http://localhost:5000'  # sever host
 URL = host + '/api'
 data = {}
 
 
 def get_first_info():
-    ip = socket.gethostbyname(socket.gethostname())  # get IP address
-    data['ip'] = ip
+    # ip = socket.gethostbyname(socket.gethostname())  # get IP address
+    # data['ip'] = ip
 
     cpu = {}
     cpu_info = cpuinfo.get_cpu_info()
@@ -70,8 +70,8 @@ def get_first_info():
 
 
 def send_info():
-    ip = socket.gethostbyname(socket.gethostname())  # get IP address
-    data['ip'] = ip
+    # ip = socket.gethostbyname(socket.gethostname())  # get IP address
+    # data['ip'] = ip
 
     cpu_use = psutil.cpu_percent()
     data['cpu']['usage'] = round(cpu_use, 2)
