@@ -11,7 +11,7 @@ class Memory extends React.Component{
                <p className="usage_css">{this.props.memory_info.usage}%</p>
                <p className="usage_label_css">storage usage</p>
                <CardGroup className="subcomponent">
-                    <Card className="subcard-component"><p id="Storage_storage_size">{this.props.memory_info.total} GiB Total</p></Card>
+                    <Card className="subcard-component"><p id="Storage_storage_size">{this.props.memory_info.total} GB Total</p></Card>
                    {/*<Card className="subcard-component"><p id="Storage_used">1 Disk</p></Card>*/}
                 </CardGroup>
         </Card.Body>

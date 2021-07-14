@@ -12,8 +12,8 @@ class GPU extends React.Component{
                <p className="usage_css" >{this.props.gpu_info.usage}%</p>
                <p className="usage_label_css" >gpu usage</p>
                 <CardGroup className="subcomponent">
-                    <Card className="subcard-component"><p className="GPU_memory_perc">{this.props.gpu_info.memory}GiB</p></Card>
-                    {/*<Card className="subcard-component"><p className="GPU_temperature">20ºC</p></Card>*/}
+                    <Card className="subcard-component"><p className="GPU_memory_perc">{this.props.gpu_info.memory} MB</p></Card>
+                    <Card className="subcard-component"><p className="GPU_memory_perc">{this.props.gpu_info.total} MB</p></Card>
                 </CardGroup>
         </Card.Body>
     );

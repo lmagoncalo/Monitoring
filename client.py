@@ -62,7 +62,7 @@ def get_first_info(computer_name):
     GPUs = GPUtil.getGPUs()
     gpus = {}
     for GPU in GPUs:
-        gpu_info = {"name": GPU.name, "usage": round(GPU.load, 2), "memory": round(GPU.memoryUsed / GPU.memoryTotal, 2)}
+        gpu_info = {"name": GPU.name, "usage": round(GPU.load, 2), "memory": int(GPU.memoryUsed), "total": int(GPU.memoryTotal)}
         gpus[GPU.id] = gpu_info
 
     data['gpu'] = gpus
@@ -109,7 +109,7 @@ def main():
         time.sleep(delay)  # delay
 
         send_info()
-        print(data)
+        # print(data)
 
 
 if __name__ == '__main__':

@@ -5,7 +5,6 @@ import CPU from "../CPU/CPU";
 import RAM from "../RAM/RAM";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
-import {Row} from "react-bootstrap";
 
 
 class Computer extends React.Component{
