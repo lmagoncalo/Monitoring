@@ -12,8 +12,9 @@ real_time = {}
 
 
 @app.route('/', methods=['GET'])
-def get_info():
+def start():
 	return 'First endpoint.'
+
 
 @app.route('/info', methods=['GET'])
 def get_info():
