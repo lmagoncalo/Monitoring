@@ -13,8 +13,8 @@ class Computer extends React.Component{
     return (
         <Card className="Computer">
                     <div className="Computer_identity">
-                        <p className="Computer_name">Computer A</p>
-                        <p className="Computer_ip">{this.props.computer_info.ip}</p>
+                        <p className="Computer_name">{this.props.computer_info.name}</p>
+                        <p className="Computer_ip">—</p>
                     </div>
                     <CardGroup className="Computer_components">
                             <Card className="Computer_components_cards">

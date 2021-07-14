@@ -18,9 +18,10 @@ URL = host + '/api'
 data = {}
 
 
-def get_first_info():
+def get_first_info(computer_name):
     # ip = socket.gethostbyname(socket.gethostname())  # get IP address
     # data['ip'] = ip
+    data['name'] = computer_name
 
     cpu = {}
     cpu_info = cpuinfo.get_cpu_info()
@@ -70,9 +71,6 @@ def get_first_info():
 
 
 def send_info():
-    # ip = socket.gethostbyname(socket.gethostname())  # get IP address
-    # data['ip'] = ip
-
     cpu_use = psutil.cpu_percent()
     data['cpu']['usage'] = round(cpu_use, 2)
 
@@ -90,7 +88,14 @@ def send_info():
 
 
 def main():
-    get_first_info()
+    # Check if there is a computer name
+    if len(sys.argv) != 2:
+        print("Usage: client.py [name]")
+        return
+    else:
+        computer_name = sys.argv[-1]
+
+    get_first_info(computer_name)
     while True:
         try:
             res = requests.post(url=URL, json=data)  # post

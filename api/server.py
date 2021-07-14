@@ -23,10 +23,8 @@ def get_info():
 def api():
 	try:
 		data = request.json
-		# ip = str(data['ip'])
-		ip = request.remote_addr
-		data['ip'] = ip
-		real_time[ip] = data
+		name = str(data['name'])
+		real_time[name] = data
 
 		print(real_time)
 		return 'OK'
