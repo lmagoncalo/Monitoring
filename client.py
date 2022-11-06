@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # coding:utf-8
 
-import socket
 import sys
 import time
 
@@ -62,7 +61,8 @@ def get_first_info(computer_name):
     GPUs = GPUtil.getGPUs()
     gpus = {}
     for GPU in GPUs:
-        gpu_info = {"name": GPU.name, "usage": round(GPU.load, 2), "memory": int(GPU.memoryUsed), "total": int(GPU.memoryTotal)}
+        # gpu_info = {"name": GPU.name, "usage": round(GPU.load, 2), "memory": int(GPU.memoryUsed), "total": int(GPU.memoryTotal)}
+        gpu_info = {"name": GPU.name, "usage": round(GPU.memoryUtil, 2), "memory": int(GPU.memoryUsed), "total": int(GPU.memoryTotal)}
         gpus[GPU.id] = gpu_info
 
     data['gpu'] = gpus
